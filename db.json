@@ -1,0 +1,29 @@
+{
+    "users": [
+      {
+        "id": 1,
+        "username": "testuser",
+        "email": "test@example.com",
+        "password": "password123"
+      }
+    ],
+    "blogs": [
+      {
+        "id": 1,
+        "title": "My First Blog Post",
+        "content": "This is the content of my first blog post.",
+        "category": "Technology",
+        "image": "https://via.placeholder.com/300",
+        "shortDescription": "A short description of my first blog",
+        "authorId": 1,
+        "authorName": "testuser",
+        "createdAt": "2023-05-01T12:00:00Z"
+      }
+    ],
+    "categories": [
+    { "name": "Technology" },
+    { "name": "Travel" },
+    { "name": "Food" },
+    { "name": "Lifestyle" }
+]
+}
