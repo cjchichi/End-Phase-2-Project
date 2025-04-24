@@ -10,12 +10,14 @@ import NotFound from './components/NotFound';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import PrivateRoute from './components/PrivateRoute';
+import Searchbar from './components/Searchbar';
 
 function App() {
   return (
     <AuthProvider>
       <Router>
         <Navbar />
+        <Searchbar />
         <main className="main-content">
           <Routes>
             <Route path="/" element={<Home />} />

@@ -10,7 +10,7 @@ const Footer = () => {
           <p>Sharing stories, ideas, and knowledge with the world.</p>
           <div className="social-links">
             <a href="https://x.com/mocablog" target="_blank" rel="noopener noreferrer">X</a>
-            <a href="https://facebook.com/mocablog" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a href="https://linkedin.com/mocablog" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             <a href="https://instagram.com/mocablog" target="_blank" rel="noopener noreferrer">Instagram</a>
           </div>
         </div>
