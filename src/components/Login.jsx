@@ -2,13 +2,11 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
-const AuthForm = ({ isLogin }) => {
-  const [name, setName] = useState('');
+const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [acceptedTerms, setAcceptedTerms] = useState(false);
   const [localError, setLocalError] = useState('');
-  const { currentUser, login, signup, loading, error } = useAuth();
+  const { currentUser, login, loading, error } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -22,14 +20,7 @@ const AuthForm = ({ isLogin }) => {
     setLocalError('');
     
     try {
-      if (isLogin) {
-        await login(email, password);
-      } else {
-        if (!acceptedTerms) {
-          throw new Error('You must accept the terms and conditions');
-        }
-        await signup(name, email, password);
-      }
+      await login(email, password);
       navigate('/dashboard');
     } catch (err) {
       setLocalError(err.message);
@@ -42,22 +33,10 @@ const AuthForm = ({ isLogin }) => {
 
   return (
     <div className="auth-form">
-      <h2>{isLogin ? 'Login' : 'Sign Up'}</h2>
+      <h2>Login</h2>
       {(error || localError) && <div className="error">{error || localError}</div>}
       
       <form onSubmit={handleSubmit}>
-        {!isLogin && (
-          <div className="form-group">
-            <label>Name</label>
-            <input
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-            />
-          </div>
-        )}
-        
         <div className="form-group">
           <label>Email</label>
           <input
@@ -79,38 +58,23 @@ const AuthForm = ({ isLogin }) => {
           />
         </div>
         
-        {!isLogin && (
-          <div className="form-group checkbox">
-            <input
-              type="checkbox"
-              id="terms"
-              checked={acceptedTerms}
-              onChange={(e) => setAcceptedTerms(e.target.checked)}
-              required
-            />
-            <label htmlFor="terms">
-              I agree to the <a href="/terms" target="_blank" rel="noopener noreferrer">Terms and Conditions</a>
-            </label>
-          </div>
-        )}
-        
         <button type="submit" disabled={loading}>
-          {loading ? 'Processing...' : isLogin ? 'Login' : 'Sign Up'}
+          {loading ? 'Processing...' : 'Login'}
         </button>
       </form>
       
       <div className="auth-switch">
-        {isLogin ? "Don't have an account? " : "Already have an account? "}
+        Don't have an account?
         <button 
           type="button" 
-          onClick={() => navigate(isLogin ? '/signup' : '/login')}
+          onClick={() => navigate('/signup')}
           className="link-button"
         >
-          {isLogin ? 'Sign Up' : 'Login'}
+          Sign Up
         </button>
       </div>
     </div>
   );
 };
 
-export default AuthForm;
+export default Login;

@@ -1,7 +1,8 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import Home from './components/Home';
-import AuthForm from './components/AuthForm';
+import Login from './components/Login';
+import Signup from './components/Signup';
 import Dashboard from './components/Dashboard';
 import BlogDetail from './components/BlogDetail';
 import CreateBlog from './components/CreateBlog';
@@ -23,8 +24,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/blogs/:id" element={<BlogDetail />} />
             
-            <Route path="/login" element={<AuthForm isLogin={true} />} />
-            <Route path="/signup" element={<AuthForm isLogin={false} />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
             
             <Route path="/dashboard" element={
               <PrivateRoute>
