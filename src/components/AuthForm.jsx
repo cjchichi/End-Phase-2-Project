@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
+
 const AuthForm = ({ isLogin }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');

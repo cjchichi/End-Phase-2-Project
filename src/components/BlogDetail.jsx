@@ -6,7 +6,7 @@ const BlogDetail = () => {
       id: 1,
       title: 'Sample Blog',
       content: 'This is the full content of the blog post...',
-      image: 'https://via.placeholder.com/800x400',
+      image: 'https://i.pinimg.com/736x/c4/c8/a4/c4c8a4bbe361041c1355062b6df34ecf.jpg',
       author: 'John Doe'
     };
   
