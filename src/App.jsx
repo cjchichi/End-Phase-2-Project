@@ -17,37 +17,47 @@ function App() {
   return (
     <AuthProvider>
       <Router>
-        <Navbar />
-        <Searchbar />
-        <main className="main-content">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/blogs/:id" element={<BlogDetail />} />
-            
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            
-            <Route path="/dashboard" element={
-              <PrivateRoute>
-                <Dashboard />
-              </PrivateRoute>
-            } />
-            <Route path="/create-blog" element={
-              <PrivateRoute>
-                <CreateBlog />
-              </PrivateRoute>
-            } />
-            <Route path="/edit-blog/:id" element={
-              <PrivateRoute>
-                <EditBlog />
-              </PrivateRoute>
-            } />
-            
-            <Route path="/404" element={<NotFound />} />
-            <Route path="*" element={<Navigate to="/404" replace />} />
-          </Routes>
-        </main>
-        <Footer />
+        <Routes>
+          {/* Routes with Navbar and Footer */}
+          <Route path="/*" element={
+            <>
+              <Navbar />
+              <Searchbar />
+              <main className="main-content">
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/blogs/:id" element={<BlogDetail />} />
+                  
+                  <Route path="/dashboard" element={
+                    <PrivateRoute>
+                      <Dashboard />
+                    </PrivateRoute>
+                  } />
+                  <Route path="/create-blog" element={
+                    <PrivateRoute>
+                      <CreateBlog />
+                    </PrivateRoute>
+                  } />
+                  <Route path="/edit-blog/:id" element={
+                    <PrivateRoute>
+                      <EditBlog />
+                    </PrivateRoute>
+                  } />
+                  
+                  <Route path="/404" element={<NotFound />} />
+                </Routes>
+              </main>
+              <Footer />
+            </>
+          } />
+          
+          {/* Auth routes without Navbar and Footer */}
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          
+          {/* Catch-all route */}
+          <Route path="*" element={<Navigate to="/404" replace />} />
+        </Routes>
       </Router>
     </AuthProvider>
   );
