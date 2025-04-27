@@ -1,15 +1,20 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import '../index.css';
 
+<<<<<<< HEAD:src/components/AuthForm.jsx
 
 const AuthForm = ({ isLogin }) => {
+=======
+const Signup = () => {
+>>>>>>> refs/remotes/origin/main:src/components/Signup.jsx
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [acceptedTerms, setAcceptedTerms] = useState(false);
   const [localError, setLocalError] = useState('');
-  const { currentUser, login, signup, loading, error } = useAuth();
+  const { currentUser, signup, loading, error } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -23,14 +28,10 @@ const AuthForm = ({ isLogin }) => {
     setLocalError('');
     
     try {
-      if (isLogin) {
-        await login(email, password);
-      } else {
-        if (!acceptedTerms) {
-          throw new Error('You must accept the terms and conditions');
-        }
-        await signup(name, email, password);
+      if (!acceptedTerms) {
+        throw new Error('You must accept the terms and conditions');
       }
+      await signup(name, email, password);
       navigate('/dashboard');
     } catch (err) {
       setLocalError(err.message);
@@ -43,21 +44,19 @@ const AuthForm = ({ isLogin }) => {
 
   return (
     <div className="auth-form">
-      <h2>{isLogin ? 'Login' : 'Sign Up'}</h2>
+      <h2>Sign Up</h2>
       {(error || localError) && <div className="error">{error || localError}</div>}
       
       <form onSubmit={handleSubmit}>
-        {!isLogin && (
-          <div className="form-group">
-            <label>Name</label>
-            <input
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-            />
-          </div>
-        )}
+        <div className="form-group">
+          <label>Name</label>
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+        </div>
         
         <div className="form-group">
           <label>Email</label>
@@ -80,38 +79,36 @@ const AuthForm = ({ isLogin }) => {
           />
         </div>
         
-        {!isLogin && (
-          <div className="form-group checkbox">
-            <input
-              type="checkbox"
-              id="terms"
-              checked={acceptedTerms}
-              onChange={(e) => setAcceptedTerms(e.target.checked)}
-              required
-            />
-            <label htmlFor="terms">
-              I agree to the <a href="/terms" target="_blank" rel="noopener noreferrer">Terms and Conditions</a>
-            </label>
-          </div>
-        )}
+        <div className="form-group checkbox">
+          <input
+            type="checkbox"
+            id="terms"
+            checked={acceptedTerms}
+            onChange={(e) => setAcceptedTerms(e.target.checked)}
+            required
+          />
+          <label htmlFor="terms">
+            I agree to the <a href="/terms" target="_blank" rel="noopener noreferrer">Terms and Conditions</a>
+          </label>
+        </div>
         
         <button type="submit" disabled={loading}>
-          {loading ? 'Processing...' : isLogin ? 'Login' : 'Sign Up'}
+          {loading ? 'Processing...' : 'Sign Up'}
         </button>
       </form>
       
       <div className="auth-switch">
-        {isLogin ? "Don't have an account? " : "Already have an account? "}
+        Already have an account?
         <button 
           type="button" 
-          onClick={() => navigate(isLogin ? '/signup' : '/login')}
+          onClick={() => navigate('/login')}
           className="link-button"
         >
-          {isLogin ? 'Sign Up' : 'Login'}
+          Login
         </button>
       </div>
     </div>
   );
 };
 
-export default AuthForm;
+export default Signup;
