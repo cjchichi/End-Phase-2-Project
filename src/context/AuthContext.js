@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react';
+import { validateUser, addUser } from '../utils/userCheck';
 
 const AuthContext = createContext();
 
@@ -23,21 +24,17 @@ export function AuthProvider({ children }) {
     try {
       setLoading(true);
       setError(null);
-      
-      // Mock implementation - replace with actual API call
-      await new Promise(resolve => setTimeout(resolve, 500));
-      const user = { 
-        email, 
-        name: email.split('@')[0], 
-        id: Date.now().toString(),
-        token: 'mock-auth-token'
-      };
-      
+
+      const user = await validateUser(email, password);
+      if (!user || !user.id) { // Ensure user object is valid and contains an ID
+        throw new Error('Invalid email or password');
+      }
+
       localStorage.setItem('user', JSON.stringify(user));
       setCurrentUser(user);
-      return user; // Return user instead of navigating
+      return user;
     } catch (err) {
-      setError(err.message);
+      setError(err.message || 'Login failed');
       throw err;
     } finally {
       setLoading(false);
@@ -48,21 +45,17 @@ export function AuthProvider({ children }) {
     try {
       setLoading(true);
       setError(null);
-      
-      // Mock implementation - replace with actual API call
-      await new Promise(resolve => setTimeout(resolve, 500));
-      const user = { 
-        email, 
-        name, 
-        id: Date.now().toString(),
-        token: 'mock-auth-token'
-      };
-      
-      localStorage.setItem('user', JSON.stringify(user));
-      setCurrentUser(user);
-      return user; // Return user instead of navigating
+
+      const newUser = await addUser(name, email, password);
+      if (!newUser || !newUser.id) { // Ensure newUser object is valid and contains an ID
+        throw new Error('Signup failed. Please try again.');
+      }
+
+      localStorage.setItem('user', JSON.stringify(newUser));
+      setCurrentUser(newUser);
+      return newUser;
     } catch (err) {
-      setError(err.message);
+      setError(err.message || 'Signup failed');
       throw err;
     } finally {
       setLoading(false);
