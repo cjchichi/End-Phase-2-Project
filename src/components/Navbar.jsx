@@ -1,9 +1,19 @@
 import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+<<<<<<< HEAD
+import { useState } from 'react';
+=======
 import React from 'react';
+>>>>>>> refs/remotes/origin/main
 
 const Navbar = () => {
   const { currentUser, logout } = useAuth();
+  const [searchTerm, setSearchTerm] =useState('');
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    console.log('Searching for:',searchTerm);
+  };
 
   return (
     <nav className="navbar">
@@ -15,6 +25,15 @@ const Navbar = () => {
         {currentUser && <Link to="/dashboard">Dashboard</Link>}
         {currentUser && <Link to="/create-blog">Create Blog</Link>}
       </div>
+      <form onSubmit={handleSearch} className='search-form'>
+        <input type="text"
+        placeholder='Search...'
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        className='search-input'
+         />
+         <button type='submit' className='search-button'>Search</button>
+      </form>
       <div className="navbar-auth">
         {currentUser ? (
           <div className="user-menu">

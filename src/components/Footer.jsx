@@ -8,11 +8,19 @@ const Footer = () => {
         <div className="footer-section">
           <h3>Moca Blog</h3>
           <p>Sharing stories, ideas, and knowledge with the world.</p>
+          
           <div className="social-links">
+<<<<<<< HEAD
+            <img src="https://img.icons8.com/?size=100&id=58329&format=png&color=000000" alt="twitter" />
+            <img src="https://img.icons8.com/?size=100&id=118497&format=png&color=000000" alt="Facebook" />
+            <img src="https://img.icons8.com/?size=100&id=BrU2BBoRXiWq&format=png&color=000000" alt="Instagram" />
+=======
             <a href="https://x.com/mocablog" target="_blank" rel="noopener noreferrer">X</a>
             <a href="https://linkedin.com/mocablog" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             <a href="https://instagram.com/mocablog" target="_blank" rel="noopener noreferrer">Instagram</a>
+>>>>>>> refs/remotes/origin/main
           </div>
+          
         </div>
 
         <div className="footer-section">
