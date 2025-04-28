@@ -1,10 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-<<<<<<< HEAD
 import { useState } from 'react';
-=======
-import React from 'react';
->>>>>>> refs/remotes/origin/main
 
 const Navbar = () => {
   const { currentUser, logout } = useAuth();

@@ -11,57 +11,40 @@ import NotFound from './components/NotFound';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import PrivateRoute from './components/PrivateRoute';
-<<<<<<< HEAD
-import './index.css';
-=======
-import Searchbar from './components/Searchbar';
->>>>>>> refs/remotes/origin/main
+
 
 function App() {
   return (
     <AuthProvider>
       <Router>
-        <Routes>
-          {/* Routes with Navbar and Footer */}
-          <Route path="/*" element={
-            <>
-              <Navbar />
-              <Searchbar />
-              <main className="main-content">
-                <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/blogs/:id" element={<BlogDetail />} />
-                  
-                  <Route path="/dashboard" element={
-                    <PrivateRoute>
-                      <Dashboard />
-                    </PrivateRoute>
-                  } />
-                  <Route path="/create-blog" element={
-                    <PrivateRoute>
-                      <CreateBlog />
-                    </PrivateRoute>
-                  } />
-                  <Route path="/edit-blog/:id" element={
-                    <PrivateRoute>
-                      <EditBlog />
-                    </PrivateRoute>
-                  } />
-                  
-                  <Route path="/404" element={<NotFound />} />
-                </Routes>
-              </main>
-              <Footer />
-            </>
-          } />
-          
-          {/* Auth routes without Navbar and Footer */}
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          
-          {/* Catch-all route */}
-          <Route path="*" element={<Navigate to="/404" replace />} />
-        </Routes>
+        <Navbar />
+        <main className="main-content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/blogs/:id" element={<BlogDetail />} />
+            <Route path="/dashboard" element={
+              <PrivateRoute>
+                <Dashboard />
+              </PrivateRoute>
+            } />
+            <Route path="/create-blog" element={
+              <PrivateRoute>
+                <CreateBlog />
+              </PrivateRoute>
+            } />
+            <Route path="/edit-blog/:id" element={
+              <PrivateRoute>
+                <EditBlog />
+              </PrivateRoute>
+            } />
+            <Route path="/404" element={<NotFound />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            {/* Catch-all */}
+            <Route path="*" element={<Navigate to="/404" replace />} />
+          </Routes>
+        </main>
+        <Footer />
       </Router>
     </AuthProvider>
   );

@@ -3,12 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import '../index.css';
 
-<<<<<<< HEAD:src/components/AuthForm.jsx
 
-const AuthForm = ({ isLogin }) => {
-=======
-const Signup = () => {
->>>>>>> refs/remotes/origin/main:src/components/Signup.jsx
+const AuthForm = ({ isSignup }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -111,4 +107,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default AuthForm;

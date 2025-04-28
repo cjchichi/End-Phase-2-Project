@@ -1,5 +1,15 @@
 import axios from 'axios';
 
+
+axios.get('https://api.example.com/data')
+  .then(response => {
+    console.log(response.data);
+  })
+  .catch(error => {
+    console.error(error);
+  });
+
+
 const API_URL = 'http://localhost:5000'; // Ensure this is the correct backend URL
 
 export const getBlogs = async () => {
