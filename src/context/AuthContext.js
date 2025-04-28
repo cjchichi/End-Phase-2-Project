@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react';
-import { validateUser, addUser } from '../utils/userCheck';
+// import { validateUser, addUser } from '../utils/userCheck';
 
 const AuthContext = createContext();
 
@@ -33,14 +33,6 @@ export function AuthProvider({ children }) {
     try {
       setLoading(true);
       setError(null);
-<<<<<<< HEAD
-
-      const user = await validateUser(email, password);
-      if (!user || !user.id) { // Ensure user object is valid and contains an ID
-        throw new Error('Invalid email or password');
-      }
-
-=======
       
 
 
@@ -61,7 +53,6 @@ export function AuthProvider({ children }) {
       };
       
 
->>>>>>> d1fe44bb36e20af059ec516a194a8b51631e9a4b
       localStorage.setItem('user', JSON.stringify(user));
       setCurrentUser(user);
       return user;
@@ -77,17 +68,6 @@ export function AuthProvider({ children }) {
     try {
       setLoading(true);
       setError(null);
-<<<<<<< HEAD
-
-      const newUser = await addUser(name, email, password);
-      if (!newUser || !newUser.id) { // Ensure newUser object is valid and contains an ID
-        throw new Error('Signup failed. Please try again.');
-      }
-
-      localStorage.setItem('user', JSON.stringify(newUser));
-      setCurrentUser(newUser);
-      return newUser;
-=======
       
 
       if (!name || !email || !password) {
@@ -110,7 +90,6 @@ export function AuthProvider({ children }) {
       localStorage.setItem('user', JSON.stringify(user));
       setCurrentUser(user);
       return user;
->>>>>>> d1fe44bb36e20af059ec516a194a8b51631e9a4b
     } catch (err) {
       setError(err.message || 'Signup failed');
       throw err;
