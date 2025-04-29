@@ -27,16 +27,6 @@ const Footer = () => {
             <li><Link to="/terms">Terms of Service</Link></li>
           </ul>
         </div>
-
-        <div className="footer-section">
-          <h4>Categories</h4>
-          <ul>
-            <li><Link to="/category/technology">Technology</Link></li>
-            <li><Link to="/category/travel">Travel</Link></li>
-            <li><Link to="/category/food">Food</Link></li>
-            <li><Link to="/category/lifestyle">Lifestyle</Link></li>
-          </ul>
-        </div>
       </div>
 
       <div className="footer-bottom">

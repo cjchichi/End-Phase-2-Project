@@ -1164,3 +1164,101 @@ button:focus-visible {
   font-size: 1.5rem;
   color: var(--text-color);
 }
+
+/* View Details Button Styles */
+.btn-view-details {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: var(--main-color);
+  color: #000;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-align: center;
+}
+
+.btn-view-details:hover {
+  background-color: #00c4cc;
+  transform: translateY(-2px);
+}
+
+.btn-view-details:active {
+  background-color: #008b8b;
+  transform: translateY(0);
+}
+
+.btn-view-details i {
+  margin-right: 5px;
+  font-size: 1rem;
+}
+
+/* BlogDetails Styles */
+.blog-details-container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: var(--second-bg-color);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text-color);
+}
+
+.blog-details-container h1 {
+  font-size: 2.5rem;
+  color: var(--main-color);
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.blog-details-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.blog-details-container p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #ddd;
+  margin-bottom: 20px;
+}
+
+.blog-details-container .blog-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-bottom: 20px;
+}
+
+.blog-details-container .blog-meta span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.blog-details-container .blog-meta i {
+  color: var(--main-color);
+}
+
+.blog-details-container .back-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: var(--main-color);
+  color: #000;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.blog-details-container .back-button:hover {
+  background-color: #00c4cc;
+}

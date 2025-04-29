@@ -1,47 +1,28 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
-import { useState } from 'react';
 
-const Navbar = () => {
-  const { currentUser, logout } = useAuth();
-  const [searchTerm, setSearchTerm] =useState('');
-
-  const handleSearch = (e) => {
-    e.preventDefault();
-    console.log('Searching for:',searchTerm);
+const Navbar = ({ searchQuery, setSearchQuery }) => {
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
   };
 
   return (
     <nav className="navbar">
       <div className="navbar-brand">
-        <Link to="/">Moca Blog</Link>
+        <h1>Moca Blog</h1>
       </div>
       <div className="navbar-links">
         <Link to="/">Home</Link>
-        {currentUser && <Link to="/dashboard">Dashboard</Link>}
-        {currentUser && <Link to="/create-blog">Create Blog</Link>}
+        <Link to="/dashboard">Dashboard</Link>
+        <Link to="/create-blog">Create Blog</Link>
       </div>
-      <form onSubmit={handleSearch} className='search-form'>
-        <input type="text"
-        placeholder='Search...'
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-        className='search-input'
-         />
-         <button type='submit' className='search-button'>Search</button>
-      </form>
-      <div className="navbar-auth">
-        {currentUser ? (
-          <div className="user-menu">
-            <span>Hello, {currentUser.name}</span>
-            <button onClick={logout}>Logout</button>
-          </div>
-        ) : (
-          <>
-            <Link to="/login">Login</Link>
-            <Link to="/signup">Sign Up</Link>
-          </>
-        )}
+      <div className="navbar-search">
+        <input
+          type="text"
+          placeholder="Search blogs..."
+          value={searchQuery}
+          onChange={handleSearchChange}
+        />
       </div>
     </nav>
   );

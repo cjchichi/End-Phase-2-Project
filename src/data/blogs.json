@@ -1,30 +1,79 @@
 [
   {
-    "id": "1745762479754",
-    "title": "My First Blog",
-    "content": "This is the content of the blog.",
-    "author": "John Doe",
-    "createdAt": "2025-04-27T14:01:19.754Z"
+    "id": 1,
+    "title": "Exploring the Future of AI",
+    "image": "https://example.com/images/ai-future.jpg",
+    "content": "Artificial Intelligence is rapidly transforming the world. From self-driving cars to smart assistants, AI is becoming an integral part of everyday life.",
+    "date": "2025-04-01"
   },
   {
-    "id": "1745823656149",
-    "title": "THE SPANISH ARMADA",
-    "content": "We will never change our credo\nFor Pope nor boke nor bell\nAnd if the devil were to come himself\nWe will hound him back to hell",
-    "author": "Michael Totti",
-    "createdAt": "2025-04-28T07:00:56.149Z"
+    "id": 2,
+    "title": "The Rise of Remote Work",
+    "image": "https://example.com/images/remote-work.jpg",
+    "content": "Remote work has become the new norm for many industries. This article explores how businesses and employees are adapting to this major shift.",
+    "date": "2025-03-15"
   },
   {
-    "id": "1745823781229",
-    "title": "BOOM",
-    "content": "Boom boom boom boom",
-    "author": "boom boom",
-    "createdAt": "2025-04-28T07:03:01.229Z"
+    "id": 3,
+    "title": "Top 10 Web Development Trends in 2025",
+    "image": "https://example.com/images/web-trends.jpg",
+    "content": "Staying up to date with the latest trends in web development is crucial. Here's a look at what developers are focusing on this year.",
+    "date": "2025-04-10"
   },
   {
-    "id": "1745827608968",
-    "title": "Boomshakalaka",
-    "content": "vheuivrowoewoe",
-    "author": "weqwein",
-    "createdAt": "2025-04-28T08:06:48.968Z"
+    "id": 4,
+    "title": "Mindfulness in the Digital Age",
+    "image": "https://example.com/images/mindfulness.jpg",
+    "content": "With so much digital distraction, mindfulness is more important than ever. Learn simple techniques to stay present and focused.",
+    "date": "2025-04-05"
+  },
+  {
+    "id": 5,
+    "title": "How to Start a Tech Blog in 2025",
+    "image": "https://example.com/images/tech-blog.jpg",
+    "content": "Starting a tech blog is a great way to share knowledge and grow your personal brand. Here's a step-by-step guide to get you going.",
+    "date": "2025-04-20"
+  },
+  {
+    "id": 6,
+    "title": "Building Resilience in Uncertain Times",
+    "image": "https://example.com/images/resilience.jpg",
+    "content": "Learn how to stay strong and adaptable in the face of uncertainty. These techniques can help you thrive no matter what challenges come your way.",
+    "date": "2025-04-08"
+  },
+  {
+    "id": 7,
+    "title": "The Power of Learning to Code",
+    "image": "https://example.com/images/learn-code.jpg",
+    "content": "Learning to code opens doors to new careers, problem-solving skills, and creative expression. Discover why now is the perfect time to start.",
+    "date": "2025-03-25"
+  },
+  {
+    "id": 8,
+    "title": "Balancing Productivity and Rest",
+    "image": "https://example.com/images/productivity.jpg",
+    "content": "Overworking leads to burnout. Here's how to balance hustle with healthy rest and self-care for long-term success.",
+    "date": "2025-04-11"
+  },
+  {
+    "id": 9,
+    "title": "Best Books for Personal Growth in 2025",
+    "image": "https://example.com/images/books.jpg",
+    "content": "Reading is still one of the best ways to grow. Here's a list of must-read books that will challenge and inspire you this year.",
+    "date": "2025-04-18"
+  },
+  {
+    "id": 10,
+    "title": "What I Learned from My First Hackathon",
+    "image": "https://example.com/images/hackathon.jpg",
+    "content": "Hackathons are intense but rewarding. I share the lessons, failures, and breakthroughs from my first ever coding competition.",
+    "date": "2025-04-22"
+  },
+  {
+    "id": "1745928651516",
+    "title": "Project presentation",
+    "content": "This is a project presentation",
+    "author": "Me",
+    "createdAt": "2025-04-29T12:10:51.516Z"
   }
 ]

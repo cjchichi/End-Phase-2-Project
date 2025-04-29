@@ -4,29 +4,31 @@ import Home from './components/Home';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import Dashboard from './components/Dashboard';
-import BlogDetail from './components/BlogDetail';
+import BlogDetails from './components/BlogDetails';
 import CreateBlog from './components/CreateBlog';
 import EditBlog from './components/EditBlog';
 import NotFound from './components/NotFound';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import PrivateRoute from './components/PrivateRoute';
-
+import { useState } from 'react';
 
 function App() {
+  const [searchQuery, setSearchQuery] = useState('');
+
   return (
     <AuthProvider>
       <Router>
-        <Navbar />
+        <Navbar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
         <main className="main-content">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/blogs/:id" element={<BlogDetail />} />
             <Route path="/dashboard" element={
               <PrivateRoute>
-                <Dashboard />
+                <Dashboard searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
               </PrivateRoute>
             } />
+            <Route path="/blogs/:blogId" element={<BlogDetails />} />
             <Route path="/create-blog" element={
               <PrivateRoute>
                 <CreateBlog />
@@ -40,7 +42,6 @@ function App() {
             <Route path="/404" element={<NotFound />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
-            {/* Catch-all */}
             <Route path="*" element={<Navigate to="/404" replace />} />
           </Routes>
         </main>

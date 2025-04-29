@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { createBlog } from '../utils/blogService'; // Import the actual API call function
 
@@ -12,7 +12,9 @@ const CreateBlog = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+  const location = useLocation();
   const navigate = useNavigate();
+  const addBlog = location.state?.addBlog;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -37,6 +39,23 @@ const CreateBlog = () => {
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleCreateBlog = (newBlog) => {
+    // Simulate saving the blog (e.g., API call)
+    const createdBlog = {
+      ...newBlog,
+      id: Date.now(), // Generate a unique ID
+      createdAt: new Date().toISOString(),
+    };
+
+    // Call the addBlog function to update the Dashboard
+    if (addBlog) {
+      addBlog(createdBlog);
+    }
+
+    // Redirect back to the Dashboard
+    navigate('/', { state: { success: 'Blog created successfully!' } });
   };
 
   return (
@@ -83,6 +102,16 @@ const CreateBlog = () => {
           {loading ? 'Publishing...' : 'Publish Blog'}
         </button>
       </form>
+      <Link 
+        to="/create-blog" 
+        className="btn-primary"
+        state={{ fromDashboard: true, addBlog }}
+      >
+        <i className="icon-plus"></i> Create New
+      </Link>
+      <button onClick={() => handleCreateBlog({ title: 'New Blog', content: 'Blog content...' })}>
+        Create Blog
+      </button>
     </div>
   );
 };
